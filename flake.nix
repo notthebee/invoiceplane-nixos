@@ -19,12 +19,12 @@
     in
     {
       nixosModules = {
-        autoaspm = import ./modules/invoiceplane.nix { inherit self; };
+        invoiceplane = import ./modules/invoiceplane.nix { inherit self; };
         default = self.nixosModules.invoiceplane;
       };
       packages = eachSystem (system: {
         default = self.packages.${system}.invoiceplane;
-        autoaspm = nixpkgs.legacyPackages.${system}.callPackage ./pkgs/invoiceplane.nix { };
+        invoiceplane = nixpkgs.legacyPackages.${system}.callPackage ./pkgs/invoiceplane.nix { };
       });
     };
 }

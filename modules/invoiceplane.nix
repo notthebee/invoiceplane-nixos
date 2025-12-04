@@ -1,4 +1,8 @@
 {
+  self,
+  ...
+}:
+{
   config,
   pkgs,
   lib,
