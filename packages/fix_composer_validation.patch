@@ -1,0 +1,13 @@
+diff --git a/composer.lock b/composer.lock
+index 46fae450e..cf4aa24c1 100644
+--- a/composer.lock
++++ b/composer.lock
+@@ -4,7 +4,7 @@
+         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+         "This file is @generated automatically"
+     ],
+-    "content-hash": "5a43ea80118815e1a3c10b0cefae77a4",
++    "content-hash": "16ec29d674456761958ca1c78513c3c5",
+     "packages": [
+         {
+             "name": "bacon/bacon-qr-code",
