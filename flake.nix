@@ -24,7 +24,7 @@
       };
       packages = eachSystem (system: {
         default = self.packages.${system}.invoiceplane;
-        invoiceplane = nixpkgs.legacyPackages.${system}.callPackage ./pkgs/invoiceplane.nix { };
+        invoiceplane = nixpkgs.legacyPackages.${system}.callPackage ./packages/invoiceplane.nix { };
       });
     };
 }
