@@ -12,7 +12,7 @@
 with lib;
 
 let
-  cfg = config.services.invoiceplane;
+  cfg = config.services.invoiceplane-beta;
   eachSite = cfg.sites;
   user = "invoiceplane";
   webserver = config.services.${cfg.webserver};
@@ -256,7 +256,7 @@ in
 {
   # interface
   options = {
-    services.invoiceplane = mkOption {
+    services.invoiceplane-beta = mkOption {
       type = types.submodule {
 
         options.sites = mkOption {
@@ -291,15 +291,15 @@ in
         mapAttrsToList (hostName: cfg: [
           {
             assertion = cfg.database.createLocally -> cfg.database.user == user;
-            message = ''services.invoiceplane.sites."${hostName}".database.user must be ${user} if the database is to be automatically provisioned'';
+            message = ''services.invoiceplane-beta.sites."${hostName}".database.user must be ${user} if the database is to be automatically provisioned'';
           }
           {
             assertion = cfg.database.createLocally -> cfg.database.passwordFile == null;
-            message = ''services.invoiceplane.sites."${hostName}".database.passwordFile cannot be specified if services.invoiceplane.sites."${hostName}".database.createLocally is set to true.'';
+            message = ''services.invoiceplane-beta.sites."${hostName}".database.passwordFile cannot be specified if services.invoiceplane-beta.sites."${hostName}".database.createLocally is set to true.'';
           }
           {
             assertion = cfg.cron.enable -> cfg.cron.key != null;
-            message = ''services.invoiceplane.sites."${hostName}".cron.key must be set in order to use cron service.'';
+            message = ''services.invoiceplane-beta.sites."${hostName}".cron.key must be set in order to use cron service.'';
           }
         ]) eachSite
       );
@@ -350,7 +350,7 @@ in
         ]) eachSite
       );
 
-      systemd.services.invoiceplane-config = {
+      systemd.services.invoiceplane-beta-config = {
         serviceConfig.Type = "oneshot";
         script = concatStrings (
           mapAttrsToList (hostName: cfg: ''
