@@ -71,7 +71,7 @@ let
     pkgs.stdenv.mkDerivation rec {
       pname = "invoiceplane-${hostName}";
       version = src.version;
-      src = self.packages.${pkgs.stdenv.hostPlatform.system} "invoiceplane-beta";
+      src = self.packages.${pkgs.stdenv.hostPlatform.system}.invoiceplane;
 
       postPatch = ''
         # Patch index.php file to load additional config file
