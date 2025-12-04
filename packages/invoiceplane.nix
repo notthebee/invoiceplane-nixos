@@ -21,7 +21,7 @@ let
   };
 in
 php.buildComposerProject2 (finalAttrs: {
-  pname = "invoiceplane";
+  pname = "invoiceplane-beta";
   inherit version;
 
   src = fetchFromGitHub {
@@ -57,10 +57,6 @@ php.buildComposerProject2 (finalAttrs: {
     cp -r ${languages}/application/language $out/application/
     rm -r $out/{composer.json,composer.lock,CONTRIBUTING.md,docker-compose.yml,Gruntfile.js,package.json,node_modules,yarn.lock,share}
   '';
-
-  passthru.tests = {
-    inherit (nixosTests) invoiceplane;
-  };
 
   meta = {
     description = "Self-hosted open source application for managing your invoices, clients and payments";
