@@ -6,8 +6,8 @@ Add the repository to your flake.nix:
 {
     inputs = {
         invoiceplane = {
-          url = "git+file:///Users/notthebee/Documents/Software/invoiceplane-nixos";
-          inputs.nixpkgs.follows = "nixpkgs";
+            url = "github:notthebee/invoiceplane-nixos";
+            inputs.nixpkgs.follows = "nixpkgs";
         };
     }
 }
