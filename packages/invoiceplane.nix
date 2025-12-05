@@ -16,7 +16,7 @@ let
   # Fetch release tarball which contains language files
   # https://github.com/InvoicePlane/InvoicePlane/issues/1170
   languages = fetchzip {
-    url = "https://github.com/InvoicePlane/InvoicePlane/archive/refs/tags/v${version}.zip";
+    url = "https://github.com/InvoicePlane/InvoicePlane/releases/download/v1.6.3/v1.6.3.zip";
     hash = "sha256-l7/pld9s+VXxdS90cPgLU/vi5aPk1c9zF86DkOEB70k=";
   };
 in
@@ -37,7 +37,6 @@ php.buildComposerProject2 (finalAttrs: {
     yarnConfigHook
     yarnBuildHook
     yarnInstallHook
-    # Needed for executing package.json scripts
     nodePackages.grunt-cli
   ];
 
@@ -53,7 +52,7 @@ php.buildComposerProject2 (finalAttrs: {
   # Cleanup and language files
   postInstall = ''
     chmod -R u+w $out/share
-    mv $out/share/php/invoiceplane/* $out/
+    mv $out/share/php/invoiceplane-beta/* $out/
     cp -r ${languages}/application/language $out/application/
     rm -r $out/{composer.json,composer.lock,CONTRIBUTING.md,docker-compose.yml,Gruntfile.js,package.json,node_modules,yarn.lock,share}
   '';
