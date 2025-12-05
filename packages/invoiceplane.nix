@@ -17,7 +17,7 @@ let
   # https://github.com/InvoicePlane/InvoicePlane/issues/1170
   languages = fetchzip {
     url = "https://github.com/InvoicePlane/InvoicePlane/releases/download/v1.6.3/v1.6.3.zip";
-    hash = "sha256-l7/pld9s+VXxdS90cPgLU/vi5aPk1c9zF86DkOEB70k=";
+    hash = "sha256-MuqxbkayW3GeiaorxfZSJtlwCWvnIF2ED/UUqahyoIQ=";
   };
 in
 php.buildComposerProject2 (finalAttrs: {
